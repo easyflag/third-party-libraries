@@ -7,7 +7,7 @@ PLATFORM=$NDK_ROOT/platforms/android-29/arch-x86
 
 export PATH=$PATH:$TOOLCHAIN/bin
 export LDFLAGS="-L$PLATFORM/usr/lib"
-export CFLAGS="-I$PLATFORM/usr/include -mfloat-abi=softfp -mfpu=vfp -ffast-math -O2"
+export CFLAGS="-I$PLATFORM/usr/include -fPIC -mfloat-abi=softfp -mfpu=vfp -ffast-math -O2"
 
 export AR=$TOOLCHAIN/bin/llvm-ar
 export CC=$TOOLCHAIN/bin/$TARGET$API-clang
