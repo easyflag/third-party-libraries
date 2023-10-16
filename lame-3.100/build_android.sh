@@ -1,4 +1,5 @@
 #!/bin/bash
+
 NDK_ROOT=/home/rainn/Android/Sdk/ndk/21.3.6528147
 TOOLCHAIN=$NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64
 TARGET=i686-linux-android
@@ -18,15 +19,12 @@ export RANLIB=$TOOLCHAIN/bin/llvm-ranlib
 export STRIP=$TOOLCHAIN/bin/llvm-strip
 export NM=$TOOLCHAIN/bin/i686-linux-android-nm
 
-rm -f Makefile
-rm -rf build/$TARGET$API
-
 ./configure --host=i686-linux-android \
     --disable-shared \
     --disable-frontend \
     --enable-static \
     --prefix=$(pwd)/build/$TARGET$API
 
-make clean
 make -j6
 make install
+make distclean
